@@ -7,26 +7,29 @@
 
 #include <cstdio>
 #include <iosfwd>
+#include <string>
+#include <cstring>
 
 class String{
 
 private:
 
-    const char* str;
+    char* str;
 
 public:
 
     String();
-    String(string);
+    String(std::string);
     String(String);
     String(char);
     String(int);
     String(double);
     String(bool);
 
-    int len() const;
+    size_t len() const;
     char& getChar(size_t i);
-    String subString(size_t begin, size_t end);
+    String subString(size_t begin, size_t end) const;
+    char* getStr() const;
 
 
 
@@ -34,6 +37,9 @@ public:
     //Surcharge d'operateur
 
     friend std::ostream& operator << (std::ostream& lhs, const String& rhs);
+    String& operator = (const String&);
+    void operator +=(const char* other);
+
 
 
 };
