@@ -81,7 +81,7 @@ bool Test::constructorTest() const{
 
     cout << "6) String(double): " << endl;
     String strDouble = String(-1.144);
-    cout << "Expected value: -1.144" << endl;
+    cout << "Expected value: -1.144000" << endl;
     cout << "Obtained value: " << (strDouble.getStr()) << endl << endl;
 
     cout << "7) String(bool): " << endl;

@@ -72,14 +72,7 @@ String::String(double d){
     int len = snprintf(nullptr, 0, "%f", d);        //memory leak
     str = new char[len + 1];
     sprintf(str, "%f", d);
-
-    //Delete the extra 0
-    int tmp = 2;
-    for(size_t i = 3; i < len; ++i){
-        if(*(str + i) != '0')
-            tmp = i + 1;
-    }
-    *(str + tmp) = '\0';
+    str[len] = '\0';
 }
 
 //Goal: Constructor
