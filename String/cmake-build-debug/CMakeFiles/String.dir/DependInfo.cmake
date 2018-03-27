@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/cstring.cpp" "C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/cmake-build-debug/CMakeFiles/String.dir/cstring.cpp.obj"
   "C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/main.cpp" "C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/cmake-build-debug/CMakeFiles/String.dir/main.cpp.obj"
+  "C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/test.cpp" "C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/cmake-build-debug/CMakeFiles/String.dir/test.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

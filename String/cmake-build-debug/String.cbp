@@ -91,6 +91,12 @@
 		<Unit filename="C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/main.cpp">
 			<Option target="String"/>
 		</Unit>
+		<Unit filename="C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/test.cpp">
+			<Option target="String"/>
+		</Unit>
+		<Unit filename="C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/test.h">
+			<Option target="String"/>
+		</Unit>
 		<Unit filename="C:/Users/benja/OneDrive/Documents/HEIG/Git/POO2/Lab14/String/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

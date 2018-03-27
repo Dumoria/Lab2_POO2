@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/String.dir/main.cpp.obj"
   "CMakeFiles/String.dir/cstring.cpp.obj"
+  "CMakeFiles/String.dir/test.cpp.obj"
   "String.pdb"
   "String.exe"
   "String.exe.manifest"
