@@ -157,6 +157,11 @@ public:
     //Exceptions: -
     String operator + (const char*) const;
 
+    //Goal: Overload of the operator +
+    //Arguments: The char*, the String to concatenate
+    //Exceptions: -
+    friend String operator + (const char* c, const String& s);
+
     //Goal: Overload of the operator =
     //Arguments: The String to assign to this
     //Exceptions: -

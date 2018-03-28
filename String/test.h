@@ -35,6 +35,13 @@ public:
     bool appendSelfStringTest() const;
     bool appendSelfCharPointerTest() const;
     bool reserveAndCopyTest() const;
-
+    bool operatorEqualStringTest() const;
+    bool operatorEqualCharPointerTest() const;
+    bool operatorStringPlusStringTest() const;
+    bool operatorStringPlusCharPointerTest() const;
+    bool operatorCharPointerPlusStringTest() const;
+    bool operatorPlusEqualStringTest() const;
+    bool operatorPlusEqualCharPointerTest() const;
+    bool operatorCinTest() const;
 };
 #endif //STRING_TEST_H

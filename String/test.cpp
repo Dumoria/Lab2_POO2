@@ -42,8 +42,19 @@ Test::Test() {
     appendSelfStringTest();
     appendSelfCharPointerTest();
     reserveAndCopyTest();
+    operatorStringPlusStringTest();
+    operatorStringPlusCharPointerTest();
+    operatorCharPointerPlusStringTest();
+    operatorEqualStringTest();
+    operatorEqualCharPointerTest();
+    operatorPlusEqualStringTest();
+    operatorPlusEqualCharPointerTest();
+    operatorCinTest();
 }
 
+//Goal: Test the constructors
+//Arguments: -
+//Exceptions: -
 bool Test::constructorTest() const{
     cout << "------------Constructor test------------" << endl << endl;
 
@@ -51,7 +62,6 @@ bool Test::constructorTest() const{
     String emptyStr = String();
     cout << "Expected value: "  << endl;
     cout << "Obtained value: " << emptyStr.getStr() << endl << endl;
-
 
     cout << "2) String(const char* s): " << endl;
     char* charPtr = new char[4];
@@ -89,12 +99,15 @@ bool Test::constructorTest() const{
     cout << "Expected value: true" << endl;
     cout << "Obtained value: " << (strBool.getStr()) << endl << endl;
 
-    cout << "8) String(bool): " << endl;
+    cout << "8) String(bool copy): " << endl;
     String strnCopy = String(strBool, 3);
     cout << "Expected value: tru" << endl;
     cout << "Obtained value: " << (strnCopy.getStr()) << endl << endl;
 }
 
+//Goal: Test the len() method
+//Arguments: -
+//Exceptions: -
 bool Test::lenTest() const{
     String strInt(17456);
     cout << "------------len() test------------" << endl << endl;
@@ -102,6 +115,9 @@ bool Test::lenTest() const{
     cout << "Obtained value: " << strInt.len() << endl << endl;
 }
 
+//Goal: Test the getStr() method
+//Arguments: -
+//Exceptions: -
 bool Test::getStrTest() const{
     String strInt(17456);
     cout << "------------getStr() test------------" << endl << endl;
@@ -109,6 +125,9 @@ bool Test::getStrTest() const{
     cout << "Obtained value: " << (strInt.getStr()) << endl << endl;
 }
 
+//Goal: Test the getChar() method
+//Arguments: -
+//Exceptions: invalid_argument
 bool Test::getCharTest() const{
     String strInt(17456);
     cout << "------------getChar() test------------" << endl << endl;
@@ -134,6 +153,9 @@ bool Test::getCharTest() const{
 
 }
 
+//Goal: Test the subString() method
+//Arguments: -
+//Exceptions: invalid_argument
 bool Test::substringTest() const{
     String strInt(17456);
     cout << "------------substring() test------------" << endl << endl;
@@ -156,6 +178,9 @@ bool Test::substringTest() const{
     }
 }
 
+//Goal: Test the equals() method with a String
+//Arguments: -
+//Exceptions: -
 bool Test::equalsStringTest() const{
     String strInt1(17456);
     String strInt2(17456);
@@ -171,8 +196,10 @@ bool Test::equalsStringTest() const{
     cout << "Obtained value: " << strInt1.equals(strInt3) << endl << endl;
 }
 
+//Goal: Test the equals() method with a char*
+//Arguments: -
+//Exceptions: -
 bool Test::equalsCharPointerTest() const{
-
     String strInt(17);
 
     char* charPtr1 = new char[3];
@@ -197,6 +224,9 @@ bool Test::equalsCharPointerTest() const{
     delete[] charPtr2;
 }
 
+//Goal: Test the copy() method with a String
+//Arguments: -
+//Exceptions: -
 bool Test::copyStringTest() const{
     String strInt1(17456);
     String strInt2(1235);
@@ -205,6 +235,9 @@ bool Test::copyStringTest() const{
     cout << "Obtained value: " << strInt1.copy(strInt2) << endl << endl;
 }
 
+//Goal: Test the copy() method with a char*
+//Arguments: -
+//Exceptions: -
 bool Test::copyCharPointerTest() const{
     String strInt(2342);
 
@@ -220,6 +253,9 @@ bool Test::copyCharPointerTest() const{
     delete[] charPtr;
 }
 
+//Goal: Test the append() method with a String
+//Arguments: -
+//Exceptions: -
 bool Test::appendStringTest() const{
     String strInt(17456);
     cout << "------------append(const String&) test------------" << endl << endl;
@@ -227,6 +263,9 @@ bool Test::appendStringTest() const{
     cout << "Obtained value: " << strInt.append(strInt) << endl << endl;
 }
 
+//Goal: Test the append() method with a char*
+//Arguments: -
+//Exceptions: -
 bool Test::appendCharPointerTest() const{
     String strInt(2342);
 
@@ -242,6 +281,9 @@ bool Test::appendCharPointerTest() const{
     delete[] charPtr;
 }
 
+//Goal: Test the appendSelf() method with a String
+//Arguments: -
+//Exceptions: -
 bool Test::appendSelfStringTest() const{
     String strInt1(17456);
     String strInt2(1235);
@@ -258,6 +300,9 @@ bool Test::appendSelfStringTest() const{
     cout << "Obtained value: " << strInt2 << endl << endl;
 }
 
+//Goal: Test the appendSelf() method with a char*
+//Arguments: -
+//Exceptions: -
 bool Test::appendSelfCharPointerTest() const{
     String strInt(2342);
 
@@ -272,9 +317,11 @@ bool Test::appendSelfCharPointerTest() const{
     cout << "Obtained value: " << strInt << endl << endl;
 
     delete[] charPtr;
-
 }
 
+//Goal: Test the reserveAndCopy() method with
+//Arguments: -
+//Exceptions: -
 bool Test::reserveAndCopyTest() const{
     String strInt(2342);
 
@@ -289,5 +336,110 @@ bool Test::reserveAndCopyTest() const{
     cout << "Obtained value: " << strInt << endl << endl;
 
     delete[] charPtr;
+}
 
+//Goal: Test the overload of the = operator with a String
+//Arguments: -
+//Exceptions: -
+bool Test::operatorEqualStringTest() const {
+    String strCharPtr1("Test");
+    String strEqual = String();
+    strEqual = strCharPtr1;
+
+    cout << "-------------------- = String test-------------------" << endl << endl;
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strEqual << endl << endl;
+}
+
+//Goal: Test the overload of the = operator with a char*
+//Arguments: -
+//Exceptions: -
+bool Test::operatorEqualCharPointerTest() const {
+    String strEqual = String();
+    strEqual = "Test";
+
+    cout << "-------------------- = String test-------------------" << endl << endl;
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strEqual << endl << endl;
+}
+
+
+//Goal: Test the overload of the + operator with String + String
+//Arguments: -
+//Exceptions: -
+bool Test::operatorStringPlusStringTest() const {
+    String strCharPtr1("Te");
+    String strCharPtr2("st");
+    String strPlus = strCharPtr1 + strCharPtr2;
+
+    cout << "------------------String + String test-----------------" << endl << endl;
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strPlus << endl << endl;
+}
+
+//Goal: Test the overload of the + operator with String + char*
+//Arguments: -
+//Exceptions: -
+bool Test::operatorStringPlusCharPointerTest() const {
+    String strCharPtr("Te");
+    String strPlus = strCharPtr + "st";
+
+    cout << "------------------String + char* test-----------------" << endl << endl;
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strPlus << endl << endl;
+}
+
+//Goal: Test the overload of the + operator with char* + String
+//Arguments: -
+//Exceptions: -
+bool Test::operatorCharPointerPlusStringTest() const {
+    String strCharPtr("st");
+    String strPlus = "Te" + strCharPtr;
+
+    cout << "------------------String + char* test-----------------" << endl << endl;
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strPlus << endl << endl;
+}
+
+//Goal: Test the overload of the += operator with a String
+//Arguments: -
+//Exceptions: -
+bool Test::operatorPlusEqualStringTest() const {
+    String strPlusEqual = String("Te");
+    String strPlusEqual2 = String("st");
+    strPlusEqual += strPlusEqual2;
+
+    cout << "-------------------- += String test-------------------" << endl << endl;
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strPlusEqual << endl << endl;
+}
+
+//Goal: Test the overload of the += operator with a char*
+//Arguments: -
+//Exceptions: -
+bool Test::operatorPlusEqualCharPointerTest() const {
+    String strPlusEqual = String("Te");
+    strPlusEqual += "st";
+
+    cout << "-------------------- += String test-------------------" << endl << endl;
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strPlusEqual << endl << endl;
+}
+
+//Goal: Test the overload of the operator <<
+//Arguments: -
+//Exceptions: -
+bool Test::operatorCinTest() const {
+    String strCin;
+
+    cout << "----------------------- << test-----------------------" << endl << endl;
+
+    while (!strCin.equals("Test")) {
+        cout << "Please enter: Test" << endl;
+
+        cin >> strCin;
+    }
+
+    cout << "Expected value: Test" << endl;
+    cout << "Obtained value: " << strCin << endl << endl;
 }

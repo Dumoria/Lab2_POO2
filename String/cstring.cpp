@@ -278,7 +278,9 @@ String String::operator + (const char* c) const{
     return append(c);
 }
 
-//non present dans .h, prob friend (ou pas)
+//Goal: Overload of the operator +
+//Arguments: The char*, the String to concatenate
+//Exceptions: -
 String operator + (const char* c, const String& s) {
     String newString = String(c);
     return newString.append(s);
